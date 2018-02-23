@@ -41,6 +41,10 @@ public class Stopwatch {
 		return running;
 	}
 	
+	/**
+	 * @return the time since start() until the current time.If the Stopwatch is running. 
+	 * @return then return the time between the start and stop times.If Stopwatch is stopped, 
+	 */
 	public double getElapsed(){
 		if(running) return (System.nanoTime()-startTime)*NANOSECOUND;
 		else return (stopTime - startTime)*NANOSECOUND;

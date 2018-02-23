@@ -6,12 +6,14 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 
 public class AppendStringBuilder implements Runnable{
-	public static String readFile2(String filename){
-		StringBuilder b = new StringBuilder();
+	private StringBuilder b = new StringBuilder();
+	
+
+	@Override
+	public void run() {
 		InputStream in = null;
 		try{
-
-			in = new FileInputStream(filename);
+			in = new FileInputStream("src/filereader/Alice-in-Wonderland.txt");
 			InputStreamReader read = new InputStreamReader(in);
 			int c;
 			while((c = read.read())>0){
@@ -21,15 +23,11 @@ public class AppendStringBuilder implements Runnable{
 				read.close();
 			}catch(IOException ex){	}
 		
-		}catch(IOException ex){
-		}
-		return b.toString();
-	}
-
-	@Override
-	public void run() {
-		String read = readFile2("src/filereader/Alice-in-Wonderland.txt");	
-		System.out.printf("Read %d chars in",read.length());
+		}catch(IOException ex){}
 		
+	}
+	
+	public String toString(){
+		return String.format("Read %d chars in",b.length());
 	}
 }

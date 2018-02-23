@@ -8,7 +8,7 @@ public class TaskTimer {
 		watch.start();
 		time.run();
 		watch.stop();
-		System.out.printf("sec %.6f\n",watch.getElapsed());
+		System.out.printf("%s sec %.6f\n",time.toString(),watch.getElapsed());
 	
 	}
 	

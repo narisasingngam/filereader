@@ -8,7 +8,11 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
-
+/**
+ * 
+ * @author Narisa Singngam
+ *
+ */
 public class FileTasks {
 	
 	public static String readFile(String filename){

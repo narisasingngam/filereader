@@ -8,13 +8,18 @@ import java.io.InputStreamReader;
 
 public class AppendStringTask implements Runnable{
 	
-	public String readFile(String filename){
-		String data = "";
+	
+	private String data = "";
+	
+
+	@Override
+	public void run() {
+		
 		InputStream in = null;
 		
 		try {
 		
-			in = new FileInputStream(filename);
+			in = new FileInputStream("src/filereader/Alice-in-Wonderland.txt");
 			InputStreamReader reader = new InputStreamReader(in); 
 			int c;
 			while(true){
@@ -24,7 +29,7 @@ public class AppendStringTask implements Runnable{
 			}
 		
 		} catch (FileNotFoundException fex){
-			System.out.println("file not found"+filename);
+			System.out.println("file not found");
 		}
 		catch (IOException ex) {
 			System.out.println(ex.getMessage());
@@ -34,15 +39,14 @@ public class AppendStringTask implements Runnable{
 		if(in != null)try{
 			in.close();
 		}catch(IOException ex){	}
-		return data;
+		
 
 	}
 	
-
 	@Override
-	public void run() {
-		String read = readFile("src/filereader/Alice-in-Wonderland.txt");	
-		System.out.printf("Read %d chars in",read.length());
+	public String toString(){
+		return String.format("Read %d chars in",data.length());
+		
 	}
 	
 	

@@ -6,13 +6,15 @@ import java.io.IOException;
 
 public class AppendStringBufferReader implements Runnable{
 	
-	public static String readFile3(String filename){
-		String result = "";
+	private String result = "";
+	@Override
+	public void run() {
+		
 		FileReader reader;
 		BufferedReader br ;
 		
 		try {
-			reader = new FileReader(filename);
+			reader = new FileReader("src/filereader/Alice-in-Wonderland.txt");
 			br = new BufferedReader((reader));
 			String line;
 			while((line = br.readLine())!= null){
@@ -22,14 +24,13 @@ public class AppendStringBufferReader implements Runnable{
 				br.close();
 			}catch(IOException ex){	}
 		} catch (IOException e) {}
-		return result;
-	}
-
-	@Override
-	public void run() {
-		String read = readFile3("src/filereader/Alice-in-Wonderland.txt");	
-		System.out.printf("Read %d chars in",read.length());
 		
 	}
+		
+	public String toString(){
+		return String.format("Read %d chars in",result.length());
+	}
+		
+	
 
 }

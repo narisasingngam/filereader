@@ -4,9 +4,18 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
+/**
+ * The class that implements Runnable and read file by StringBuilder.
+ * @author Narisa Singngam
+ */
 public class AppendStringBufferReader implements Runnable{
 	
 	private String result = "";
+	
+	/**
+	 * Run this method to read file by BufferedReader
+	 * @throws IOException.
+	 */
 	@Override
 	public void run() {
 		

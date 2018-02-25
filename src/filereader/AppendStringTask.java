@@ -6,12 +6,20 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
+/**
+ * The class that implements Runnable and read file by String
+ * @author Narisa Singngam
+ */
+
 public class AppendStringTask implements Runnable{
 	
 	
 	private String data = "";
 	
-
+	/**
+	 * Run this method to read file by String 
+	 * @throws FileNotFoundException if it can't read file.
+	 */
 	@Override
 	public void run() {
 		
